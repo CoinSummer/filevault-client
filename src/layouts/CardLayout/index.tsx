@@ -10,6 +10,12 @@ const CardContainer = styled.div`
   width: 50vw;
   max-width: 500px;
   height: ${({ theme }) => `calc(100vh - ${theme.headerHeight} - ${theme.footerHeight})`};
+
+  ${({ theme }) => theme.mediaWidth.upToSmall`
+    margin-top: 1rem;
+    width:  100%;
+    height: 100%;
+  `}
 `
 
 interface CardProps {

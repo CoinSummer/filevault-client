@@ -27,6 +27,10 @@ const HeaderContainer = styled.header`
   height: ${({ theme }) => theme.headerHeight};
   background-color: ${({ theme }) => theme.bg1};
   z-index: 1000;
+
+  ${({ theme }) => theme.mediaWidth.upToSmall`
+    padding: 0 .5rem;
+  `}
 `
 
 const LogoWrapper = styled.div`
@@ -71,7 +75,8 @@ const FooterContainer = styled.footer`
   justify-content: center;
   padding: 1rem;
   height: ${({ theme }) => theme.footerHeight};
-  color: ${({ theme }) => theme.text3};
+  font-size: 0.85rem;
+  color: ${({ theme }) => theme.text4};
 `
 
 interface BaseProps {

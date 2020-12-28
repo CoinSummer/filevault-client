@@ -7,8 +7,12 @@ const SettingsView = () => {
 
   return (
     <>
-      <span>DarkMode</span>
-      <Toggle isActive={darkMode} toggle={toggleDarkMode} />
+      <Toggle
+        isActive={darkMode}
+        activeText={<i className="iconfont">&#xe626;</i>}
+        inactiveText={<i className="iconfont">&#xe6f4;</i>}
+        toggle={toggleDarkMode}
+      />
     </>
   )
 }

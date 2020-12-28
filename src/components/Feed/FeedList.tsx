@@ -1,6 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { Text } from 'rebass/styled-components'
 import Column from '../Column'
 import FeedItem from './FeedItem'
 import { FeedData } from './types.d'

@@ -1,5 +1,5 @@
 import React, { useCallback, useContext, useState } from 'react'
-import styled, { ThemeContext } from 'styled-components'
+import styled from 'styled-components'
 import { useRouter } from 'next/router'
 import Card from '../Card'
 import Column from '../Column'
@@ -10,6 +10,11 @@ const LoginCard = styled(Card)`
   margin: 0 auto;
   padding: 3rem;
   background-color: ${({ theme }) => theme.bg1};
+
+  ${({ theme }) => theme.mediaWidth.upToSmall`
+    padding: 3rem 1rem;
+    border-radius: 0;
+  `}
 `
 
 const LoginWrapper = styled(Column)`

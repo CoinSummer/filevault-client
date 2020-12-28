@@ -1,6 +1,6 @@
 import React from 'react'
-import styled, { keyframes } from 'styled-components'
-import { Box, Text } from 'rebass/styled-components'
+import styled from 'styled-components'
+import { Text } from 'rebass/styled-components'
 import Column from '../Column'
 import Row from '../Row'
 import { FeedData } from './types.d'
@@ -11,7 +11,7 @@ const FeedItemContainer = styled(Row)`
 
 const FeedItemContent = styled(Row)`
   align-items: flex-start;
-  padding: 1rem;
+  padding: .875rem;
   background-color: ${({ theme }) => theme.bg1};
 `
 
@@ -22,7 +22,7 @@ const FeedItemAvatar = styled.img`
 `
 
 const FeedItemText = styled(Column)`
-  margin-left: 1rem;
+  margin-left: .5rem;
 `
 
 const FeedItemHead = styled(Row)`
@@ -49,11 +49,14 @@ const FeedItemBody = styled.div`
   font-size: 0.875rem;
 `
 
-
 const FeedItemSelect = styled.a`
   padding: .5rem;
   width: 100px;
   text-align: center;
+
+  ${({ theme }) => theme.mediaWidth.upToSmall`
+    width: 60px;
+  `}
 
   > i {
     font-size: 36px;

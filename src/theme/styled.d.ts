@@ -68,6 +68,7 @@ declare module 'styled-components' {
     }
 
     headerHeight: string
+    footerHeight: string
 
     // css snippets
     flexColumnNoWrap: FlattenSimpleInterpolation

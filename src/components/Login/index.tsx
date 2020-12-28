@@ -1,16 +1,15 @@
 import React, { useCallback, useContext, useState } from 'react'
 import styled, { ThemeContext } from 'styled-components'
-import { darken, lighten, rgba } from 'polished'
 import { useRouter } from 'next/router'
 import Card from '../Card'
 import Column from '../Column'
-import Row from '../Row'
-import { ButtonPrimary, ButtonLight, ButtonWhite } from '../Button'
+import { ButtonOutlined } from '../Button'
 import Slogan from '../Slogan'
 
 const LoginCard = styled(Card)`
   margin: 0 auto;
   padding: 3rem;
+  background-color: ${({ theme }) => theme.bg1};
 `
 
 const LoginWrapper = styled(Column)`
@@ -18,12 +17,11 @@ const LoginWrapper = styled(Column)`
   align-items: center;
 `
 
-const LoginItem = styled(ButtonWhite)`
+const LoginItem = styled(ButtonOutlined)`
   display: flex;
   align-items: center;
   margin-bottom: 1rem;
-  box-shadow: 0 0 3px 0 ${darken(0.005, '#edeef2')};
-  color: ${({ theme }) => theme.primary1};
+  color: ${({ theme }) => theme.primaryText1};
 
   > i {
     margin-right: .5rem;
@@ -36,7 +34,6 @@ const LoginItem = styled(ButtonWhite)`
 `
 
 const Login = () => {
-  const theme = useContext(ThemeContext)
   const router = useRouter()
 
   const handleTwitterLogin = () => {

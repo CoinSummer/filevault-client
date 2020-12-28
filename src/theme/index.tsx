@@ -67,7 +67,7 @@ export const colors = (darkMode: boolean): Colors => {
     light1: darkMode ? '#01EBE9' : '#00EBE9',
 
     // color text
-    primaryText1: darkMode ? '#043BDE' : '#ff007a',
+    primaryText1: darkMode ? '#01EBE9' : '#043BDE',
 
     // secondary colors
     secondary1: darkMode ? '#ff007a' : '#ff007a',
@@ -97,7 +97,8 @@ export const theme = (darkMode: boolean): DefaultTheme => {
     // media queries
     mediaWidth: mediaWidthTemplates,
 
-    headerHeight: '60px',
+    headerHeight: '50px',
+    footerHeight: '50px',
 
     // css snippets
     flexColumnNoWrap: css`

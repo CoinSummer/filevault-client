@@ -6,14 +6,13 @@ import Row from '../Row'
 import { FeedData } from './types.d'
 
 const FeedItemContainer = styled(Row)`
-  margin-bottom: 1rem;
-  
+  margin-top: 1rem;
 `
 
 const FeedItemContent = styled(Row)`
   align-items: flex-start;
   padding: 1rem;
-  background-color: ${({ theme }) => theme.white};
+  background-color: ${({ theme }) => theme.bg1};
 `
 
 const FeedItemAvatar = styled.img`
@@ -58,7 +57,7 @@ const FeedItemSelect = styled.a`
 
   > i {
     font-size: 36px;
-    color: ${({ theme }) => theme.primary1};
+    color: ${({ theme }) => theme.primaryText1};
   }
 `
 

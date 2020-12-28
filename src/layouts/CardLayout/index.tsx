@@ -2,13 +2,14 @@
 import React from 'react'
 import styled from 'styled-components'
 import BaseLayout from '../BaseLayout'
-import Card from '../../components/Card'
 
-const CardContainer = styled(Card)`
+const CardContainer = styled.div`
+  display: flex;
+  align-items: center;
   margin: 0 auto;
-  background-color: ${({ theme }) => theme.white};
   width: 50vw;
   max-width: 500px;
+  height: ${({ theme }) => `calc(100vh - ${theme.headerHeight} - ${theme.footerHeight})`};
 `
 
 interface CardProps {

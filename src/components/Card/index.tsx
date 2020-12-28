@@ -11,7 +11,6 @@ const Card = styled(Box)<{ padding?: string; border?: string; borderRadius?: str
   border: ${({ border }) => border};
   border-radius: ${({ borderRadius }) => borderRadius};
 `
-export default Card
 
 export const LightCard = styled(Card)`
   border: 1px solid ${({ theme }) => theme.bg2};
@@ -28,7 +27,7 @@ export const OutlineCard = styled(Card)`
 
 export const YellowCard = styled(Card)`
   background-color: rgba(243, 132, 30, 0.05);
-  color: ${({ theme }) => theme.yellow2};
+  color: ${({ theme }) => theme.yellow};
   font-weight: 500;
 `
 
@@ -54,3 +53,5 @@ export const BlueCard = ({ children }: CardProps) => {
     </BlueCardStyled>
   )
 }
+
+export default Card

@@ -4,7 +4,7 @@ import { lighten } from 'polished'
 import PageLayout from '../../layouts/PageLayout'
 import { Box } from 'rebass'
 import Feed from '../../components/Feed'
-import { ButtonWhite } from '../../components/Button'
+import { ButtonEmpty } from '../../components/Button'
 
 const HomeCoitainer = styled(Box)`
   display: flex;
@@ -24,9 +24,10 @@ const SidebarCoitainer = styled.div`
   width: 180px;
 `
 
-const SidebarButton = styled(ButtonWhite)`
+const SidebarButton = styled(ButtonEmpty)`
   margin-bottom: 2rem;
   box-shadow: 0 5px 12px 0 ${({ theme }) => lighten(0.15, theme.text4)};
+  background-color: ${({ theme }) => theme.white};
   color: ${({ theme }) => theme.primary1};
   font-weight: 400;
 
@@ -55,11 +56,14 @@ const HomePage = () => {
         </FeedCoitainer>
         <SidebarCoitainer>
           <SidebarButton
+            borderRadius="10rem"
           >
             <span>备份已选</span>
             <i className="iconfont">&#xe6cc;</i>
           </SidebarButton>
-          <SidebarButton>
+          <SidebarButton
+            borderRadius="10rem"
+          >
             <span>备份全部</span>
             <i className="iconfont">&#xe6e8;</i>
           </SidebarButton>

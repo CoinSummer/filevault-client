@@ -3,12 +3,15 @@ import React from 'react'
 import Link from 'next/link'
 import styled from 'styled-components'
 import LogoIcon from '../../assets/logo.svg'
+import Row from '../../components/Row'
+import Settings from '../../components/Settings'
 import { SITE_TITLE } from '../../const'
 
 const LayoutContainer = styled.div`
   margin: 0 auto;
   padding-top: 3rem;
   max-width: 1000px;
+  height: calc(100vh - 3rem);
 `
 
 const HeaderContainer = styled.header`
@@ -21,8 +24,8 @@ const HeaderContainer = styled.header`
   padding: 0 1.5rem;
   width: 100%;
   min-width: auto;
-  height: 3rem;
-  background-color: rgba(255, 255, 255, 1);
+  height: ${({ theme }) => theme.headerHeight};
+  background-color: ${({ theme }) => theme.bg1};
   z-index: 1000;
 `
 
@@ -46,22 +49,28 @@ const LogoText = styled.span`
   font-weight: 500;
 `
 
-const HeaderSetting = styled.span`
+const HeaderSetting = styled(Row)`
+  width: auto;
   cursor: pointer;
+
+  > span {
+    margin-right: .5rem;
+    color: ${({ theme }) => theme.text3};
+  }
 `
 
 const MainContainer = styled.main`
   position: relative;
   display: flex;
   flex-grow: 1;
-  margin-top: 1rem;
 `
 
 const FooterContainer = styled.footer`
-  padding: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 1rem;
+  height: ${({ theme }) => theme.footerHeight};
   color: ${({ theme }) => theme.text3};
 `
 
@@ -79,11 +88,9 @@ const BaseLayout = ({ children }: BaseProps) => {
             <LogoText>{SITE_TITLE}</LogoText>
           </LogoWrapper>
         </Link>
-        <Link href="/settings">
-          <HeaderSetting>
-            设置管理
-          </HeaderSetting>
-        </Link>
+        <HeaderSetting>
+          <Settings />
+        </HeaderSetting>
       </HeaderContainer>
       <MainContainer>
         {children}

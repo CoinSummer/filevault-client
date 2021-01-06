@@ -1,17 +1,15 @@
 import { configureStore } from '@reduxjs/toolkit'
 
-import storage from './storage/reducer'
+import twitter from './twitter/reducer'
 import user from './user/reducer'
 
 import { updateVersion } from './user/actions'
 
 const store = configureStore({
   reducer: {
-    storage,
+    twitter,
     user,
   },
-  // middleware: [...getDefaultMiddleware(), save({ states: PERSISTED_KEYS })],
-  // preloadedState: load({ states: PERSISTED_KEYS })
 })
 
 store.dispatch(updateVersion())

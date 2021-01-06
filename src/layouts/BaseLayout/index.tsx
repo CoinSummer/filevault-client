@@ -101,7 +101,7 @@ const BaseLayout = ({ children }: BaseProps) => {
         {children}
       </MainContainer>
       <FooterContainer>
-        &copy; 2020 Fileguard All Rights Reserved.
+        &copy; 2020 FileVault All Rights Reserved.
       </FooterContainer>
     </LayoutContainer>
   )

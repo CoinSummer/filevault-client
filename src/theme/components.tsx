@@ -5,7 +5,7 @@ import { darken } from 'polished'
 import { AiOutlineArrowLeft, AiOutlineClose } from 'react-icons/ai'
 
 export const Button = styled.button.attrs<{ warning: boolean }, { backgroundColor: string }>(({ warning, theme }) => ({
-  backgroundColor: warning ? theme.red1 : theme.primary1
+  backgroundColor: warning ? theme.red : theme.primary1
 }))`
   padding: 1rem 2rem 1rem 2rem;
   border-radius: 3rem;
@@ -127,7 +127,7 @@ export const CursorPointer = styled.div`
 const BackArrowLink = styled(StyledInternalLink)`
   color: ${({ theme }) => theme.text1};
 `
-export function BackArrow({ to }: { to: string }) {
+export const BackArrow = ({ to }: { to: string }) => {
   return (
     <BackArrowLink to={to}>
       <AiOutlineArrowLeft />

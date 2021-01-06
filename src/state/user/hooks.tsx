@@ -6,7 +6,7 @@ import {
   updateUserDarkMode,
 } from './actions'
 
-export function useIsDarkMode(): boolean {
+export const useIsDarkMode = (): boolean => {
   const { userDarkMode, matchesDarkMode } = useSelector<
     AppState,
     { userDarkMode: boolean | null; matchesDarkMode: boolean }
@@ -21,7 +21,7 @@ export function useIsDarkMode(): boolean {
   return userDarkMode === null ? matchesDarkMode : userDarkMode
 }
 
-export function useDarkModeManager(): [boolean, () => void] {
+export const useDarkModeManager = (): [boolean, () => void] => {
   const dispatch = useDispatch<AppDispatch>()
   const darkMode = useIsDarkMode()
 

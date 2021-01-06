@@ -1,12 +1,10 @@
 import { createReducer } from '@reduxjs/toolkit'
-import {
-  updateMatchesDarkMode,
-  updateUserDarkMode,
-} from './actions'
+import { updateMatchesDarkMode, updateUserDarkMode } from './actions'
 
 const currentTimestamp = () => new Date().getTime()
 
 export interface UserState {
+  userProfile: any
   userDarkMode: boolean | null // the user's choice for dark mode or light mode
   matchesDarkMode: boolean // whether the dark mode media query matches
 
@@ -14,6 +12,7 @@ export interface UserState {
 }
 
 export const initialState: UserState = {
+  userProfile: {},
   userDarkMode: null,
   matchesDarkMode: false,
   timestamp: currentTimestamp()

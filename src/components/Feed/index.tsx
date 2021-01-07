@@ -1,9 +1,6 @@
-import { useRouter } from 'next/router'
-import styled from 'styled-components'
 import FeedList from './FeedList'
 
 const Feed = () => {
-  const router = useRouter()
   const dataSource = [
     {
       id: '1279940000004973111',

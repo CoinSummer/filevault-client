@@ -1,4 +1,4 @@
-import React, { useCallback, useContext, useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { useRouter } from 'next/router'
 import Card from '../Card'

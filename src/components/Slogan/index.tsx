@@ -1,7 +1,6 @@
-import React, { useContext, useState } from 'react'
+import React from 'react'
 import { Box } from 'rebass'
-import styled, { ThemeContext } from 'styled-components'
-import { useRouter } from 'next/router'
+import styled from 'styled-components'
 import Column from '../Column'
 import LogoIcon from '../../assets/logo.svg'
 import { SITE_TITLE } from '../../const'
@@ -39,11 +38,6 @@ const SloganText = styled.p`
 `
 
 const Slogan = () => {
-  const theme = useContext(ThemeContext)
-  const [modalOpen, setModalOpen] = useState<boolean>(false)
-  const [actionType, setActionType] = useState<string>('create')
-  const router = useRouter()
-
   return (
     <SloganContainer>
       <LogoWrapper>

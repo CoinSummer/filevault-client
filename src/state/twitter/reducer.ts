@@ -13,9 +13,9 @@ export const initialState: StorageState = {
 
 export default createReducer(initialState, builder =>
   builder
-    .addCase(getTweetsList.pending, (state, { meta: { arg: url, requestId } }) => {
-      console.log(url, requestId);
-    })
+    // .addCase(getTweetsList.pending, (_, { meta: { arg: url, requestId } }) => {
+    //   console.log(url, requestId);
+    // })
     .addCase(getTweetsList.fulfilled, (state, { payload: { list, total } }) => {
       state.list = list
       state.total = total

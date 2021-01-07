@@ -1,4 +1,3 @@
-import { useRouter } from 'next/router'
 import styled from 'styled-components'
 import { lighten } from 'polished'
 import PageLayout from '../../layouts/PageLayout'
@@ -64,8 +63,6 @@ const SidebarButton = styled(ButtonEmpty)`
 `
 
 const HomePage = () => {
-  const router = useRouter()
-
   return (
     <PageLayout>
       <HomeCoitainer>

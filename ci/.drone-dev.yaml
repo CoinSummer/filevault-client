@@ -14,6 +14,7 @@ steps:
       - echo ${DRONE_TAG}/${DRONE_BRANCH}/${DRONE_COMMIT}
       - sed -i -e 's,__TAG__,'$DRONE_COMMIT_SHA',g' ci/deploy.yaml
       - sed -i -e 's,__AWS_ECR_REGISTRY__,'$AWS_ECR_REGISTRY',g' ci/deploy.yaml
+      - sed -i -e 's,__APP_NAME__,'$DRONE_REPO_NAME',g' ci/deploy.yaml
       - cat ci/deploy.yaml
       - cat Dockerfile
 

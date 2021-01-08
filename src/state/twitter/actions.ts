@@ -1,5 +1,5 @@
 import { createAction, createAsyncThunk } from '@reduxjs/toolkit'
-import { fetchTweetsList } from '../../api/twitter'
+import { fetchTweetsList, fetchTwitterCallback } from '../../api/twitter'
 
 const requestTweetsList = async (username: string): Promise<any> => {
   const response = await fetchTweetsList(username)
@@ -16,3 +16,7 @@ export const getTweetsList = createAsyncThunk('getTweetsList', (username: string
 
 // TODO replace any[] to twetts interface
 export const updateTweetsList = createAction<{ list: any[] }>('updateTweetsList')
+
+export const getTwitterCallback = createAsyncThunk('twitter/getTwitterCallback', async () => {
+  return await fetchTwitterCallback()
+})

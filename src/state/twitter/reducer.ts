@@ -1,5 +1,5 @@
 import { createReducer } from '@reduxjs/toolkit'
-import { getTweetsList, updateTweetsList } from './actions'
+import { getTweetsList, updateTweetsList, getTwitterCallback } from './actions'
 
 export interface StorageState {
   list?: any[]
@@ -22,5 +22,8 @@ export default createReducer(initialState, builder =>
     })
     .addCase(updateTweetsList, (state, action) => {
       state.list = action.payload.list
+    })
+    .addCase(getTwitterCallback.fulfilled, (state, action) => {
+      console.log(action)
     })
 )

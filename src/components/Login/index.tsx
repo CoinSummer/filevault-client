@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useRouter } from 'next/router'
+import { SITE_BASE_API } from '../../const'
 import Card from '../Card'
 import Column from '../Column'
 import { ButtonOutlined } from '../Button'
@@ -42,7 +43,7 @@ const Login = () => {
   const router = useRouter()
 
   const handleTwitterLogin = () => {
-    router.push('/home')
+    window.location.href = `${SITE_BASE_API}/auth/twitter/login`
   }
 
   const handleWeiboLogin = () => {

@@ -2,7 +2,7 @@ import axios from 'axios'
 import { SITE_API_TIMEOUT } from '../const'
 
 const service = axios.create({
-  baseURL: process.env.SITE_BASE_API || '/api/v1',
+  baseURL: process.env.SITE_BASE_API || '/api',
   timeout: SITE_API_TIMEOUT,
 })
 

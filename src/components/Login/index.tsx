@@ -42,15 +42,7 @@ const Login = () => {
   const router = useRouter()
 
   const handleTwitterLogin = async () => {
-    try {
-      const res = await fetch('/api/login', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-      })
-      console.log('res: ', res)
-    } catch (error) {
-      console.error('An unexpected error happened occurred:', error)
-    }
+    window.location.href = '/api/login'
   }
 
   const handleWeiboLogin = () => {

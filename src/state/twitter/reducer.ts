@@ -23,7 +23,7 @@ export default createReducer(initialState, builder =>
     .addCase(updateTweetsList, (state, action) => {
       state.list = action.payload.list
     })
-    .addCase(getTwitterCallback.fulfilled, (state, action) => {
+    .addCase(getTwitterCallback.fulfilled, (_, action) => {
       console.log(action)
     })
 )

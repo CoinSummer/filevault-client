@@ -1,7 +1,7 @@
-import { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
-import { AppDispatch } from '../index'
-import { getTweetsList } from './actions'
+// import { useEffect } from 'react'
+// import { useDispatch } from 'react-redux'
+// import { AppDispatch } from '../index'
+// import { getTweetsList } from './actions'
 
 const Updater = (): null => {
   // const dispatch = useDispatch<AppDispatch>()

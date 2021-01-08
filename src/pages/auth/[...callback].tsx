@@ -17,6 +17,7 @@ const AuthPage = () => {
 
   const [user, { loading }] = useUser()
   console.log('user: ', user);
+  console.log('loading: ', loading);
 
   return (
     <BaseLayout>

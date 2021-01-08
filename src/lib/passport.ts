@@ -12,12 +12,13 @@ const twitterStrategy = new Strategy({
   profile ? done(null, profile) : done(null, null)
 })
 
-passport.serializeUser((user, done) => {
+passport.serializeUser((user, done: (err: any, user?: Express.User | undefined) => void) => {
   done(null, user)
 })
 
-passport.deserializeUser((req, user, done) => {
-  done(null, user)
+passport.deserializeUser((req: any, id: string, done: (err: any, user?: Express.User | undefined) => void) => {
+  console.log('req: ', req)
+  done(null, id)
 })
 
 passport.use(twitterStrategy)

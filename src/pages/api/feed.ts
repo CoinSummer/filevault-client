@@ -13,6 +13,7 @@ export default nextConnect()
       // access_token_key: accessTokenKey,
       // access_token_secret: accessTokenSecret,
     })
+    console.log('client', client)
   })
   .use((req, res, next) => {
     if (!req.user) {

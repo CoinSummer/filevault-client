@@ -11,6 +11,7 @@ const AuthPage = () => {
 
   useEffect(() => {
     const { from } = router.query
+    console.log('from: ', from)
     if (from) {
       console.log('get tweets list')
       if (from[0] === 'twitter') {

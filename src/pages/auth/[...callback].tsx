@@ -5,21 +5,20 @@ import BaseLayout from '../../layouts/BaseLayout'
 
 const AuthPage = () => {
   const router = useRouter()
-  console.log('router.query', router.query)
 
   useEffect(() => {
     const fetchFeed = async () => {
       const { callback } = router.query
       if (callback) {
-        console.log('callback')
         if (callback[0] === 'twitter') {
           const { oauth_token: oauthToken, oauth_verifier: oauthVerifier } = router.query
           const payload = {
             oauthTokenKey: oauthToken,
             oauthTokenSecret: oauthVerifier
           }
+          // console.log('payload: ', payload);
           const res = await fetch('/api/feed', {
-            method: 'GET',
+            method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payload),
           })

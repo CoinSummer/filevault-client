@@ -1,6 +1,7 @@
 import { AppProps } from 'next/app'
 import Head from 'next/head'
 import { Provider } from 'react-redux'
+import { Provider as AuthProvider } from 'next-auth/client'
 import ThemeProvider, { FixedGlobalStyle, ThemedGlobalStyle } from '../theme'
 import store from '../state'
 import TwitterUpdater from '../state/twitter/updater'
@@ -17,7 +18,7 @@ const Updaters = () => {
 
 const App = ({ Component, pageProps }: AppProps) => {
   return (
-    <>
+    <AuthProvider session={pageProps.session}>
       <Head>
         <title>{SITE_TITLE}</title>
       </Head>
@@ -30,7 +31,7 @@ const App = ({ Component, pageProps }: AppProps) => {
           <Component {...pageProps} />
         </ThemeProvider>
       </Provider>
-    </>
+    </AuthProvider>
   )
 }
 

@@ -1,7 +1,8 @@
+import { NextApiRequest, NextApiResponse } from 'next'
 import nextConnect from 'next-connect'
 import auth from '../../middleware/auth'
 
-export default nextConnect()
+export default nextConnect<NextApiRequest, NextApiResponse>()
   .use(auth)
   .get((req, res) => {
     console.log('res: ', res);

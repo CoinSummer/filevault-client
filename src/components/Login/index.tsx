@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useRouter } from 'next/router'
+import { useSession, signIn } from 'next-auth/client'
 import Card from '../Card'
 import Column from '../Column'
 import { ButtonOutlined } from '../Button'
@@ -40,14 +41,23 @@ const LoginItem = styled(ButtonOutlined)`
 
 const Login = () => {
   const router = useRouter()
+  const [session] = useSession()
 
-  const handleTwitterLogin = async () => {
-    window.location.href = '/api/login'
+  const handleTwitterLogin = (e: any) => {
+    e.preventDefault()
+    signIn('twitter')
   }
 
   const handleWeiboLogin = () => {
     router.push('/home')
   }
+
+  const handleGithubLogin = (e: any) => {
+    e.preventDefault()
+    signIn('github')
+  }
+
+  console.log('session: ', session)
 
   return (
     <LoginCard>
@@ -64,6 +74,12 @@ const Login = () => {
         >
           <i className="iconfont">&#xe641;</i>
           <span>微博登录</span>
+        </LoginItem>
+        <LoginItem
+          onClick={handleGithubLogin}
+        >
+          <i className="iconfont">&#xe600;</i>
+          <span>Github登录</span>
         </LoginItem>
       </LoginWrapper>
     </LoginCard>

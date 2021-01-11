@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Text } from 'rebass/styled-components'
 import Column from '../Column'
 import Row from '../Row'
-import { FeedData } from './types.d'
+import { FeedData, UserData } from './types.d'
 
 const FeedItemContainer = styled(Row)`
   margin-top: 1rem;
@@ -21,7 +21,7 @@ const FeedItemAvatar = styled.img`
   border-radius: 50%;
 `
 
-const FeedItemText = styled(Column)`
+const FeedItemInfo = styled(Column)`
   margin-left: .5rem;
 `
 
@@ -47,6 +47,7 @@ const FeedItemBody = styled.div`
   margin-top: .25rem;
   color: ${({ theme }) => theme.text1};
   font-size: 0.875rem;
+  word-break: break-word;
 `
 
 const FeedItemSelect = styled.a`
@@ -65,13 +66,15 @@ const FeedItemSelect = styled.a`
 `
 
 interface FeedItemProps {
-  dataItem: FeedData
+  feedItem: FeedData
+  userInfo: UserData
   selected: boolean
   onSelect: () => void
 }
 
 const FeedItemView = ({
-  dataItem,
+  feedItem,
+  userInfo,
   selected,
   onSelect,
 }: FeedItemProps) => {
@@ -80,21 +83,21 @@ const FeedItemView = ({
       <>
         <FeedItemContent>
           <FeedItemAvatar
-            src={dataItem.avatar}
+            src={userInfo.avatar}
           />
-          <FeedItemText>
+          <FeedItemInfo>
             <FeedItemHead>
               <FeedItemName>
-                {dataItem.name}
+                {userInfo.name}
               </FeedItemName>
               <FeedItemTime>
-                {dataItem.time}
+                {feedItem.created_at}
               </FeedItemTime>
             </FeedItemHead>
             <FeedItemBody>
-              {dataItem.content}
+              {feedItem.text}
             </FeedItemBody>
-          </FeedItemText>
+          </FeedItemInfo>
         </FeedItemContent>
         <FeedItemSelect
           onClick={onSelect}

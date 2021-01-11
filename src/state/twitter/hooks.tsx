@@ -1,11 +1,12 @@
 import { useSelector } from 'react-redux'
 
 import { AppState } from '../index'
+import { TweetsMetaData } from './reducer'
 
 export const useTwettsList = (): any[] => {
   return useSelector((state: AppState) => state.twitter.list || [])
 }
 
-export const useTwettsTotal = (): number => {
-  return useSelector((state: AppState) => state.twitter.total || 0)
+export const useTwettsMeta = (): TweetsMetaData => {
+  return useSelector((state: AppState) => state.twitter.meta || {})
 }

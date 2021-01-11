@@ -1,28 +1,32 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import nextConnect from 'next-connect'
+import needle from 'needle'
 import auth from '../../middleware/auth'
 import Twitter from 'twitter-lite'
 
 const handler = nextConnect<NextApiRequest, NextApiResponse>()
   .use(auth)
-  .post(async (req, res) => {
-    // console.log('res: ', res);
-    console.log('req-----------------: ', req);
-    const { oauthTokenKey, oauthTokenSecret } = req.body
-    const client = new Twitter({
-      consumer_key: '1Rcc9zajmlnRCNnrXaOXY195D',
-      consumer_secret: 'Zu0oF91sth3goB2uvjNKsJPITbU8umsWwW4Fye3g0F0tdFDr4A',
-      access_token_key: oauthTokenKey,
-      access_token_secret: oauthTokenSecret,
+  .get(async (_, res) => {
+    const user = new Twitter({
+      consumer_key: `${process.env.TWITTER_CLIENT_ID}`,
+      consumer_secret: `${process.env.TWITTER_CLIENT_SECRET}`,
     })
-    const params = {
-      screen_name: 'yuwenhui1',
-      count: 15,
-    }
+    const { access_token: bearerToken } = await user.getBearerToken()
 
-    const feedList = await client.get('statuses/user_timeline', params)
-    console.log('feedList: ', feedList)
-    res.json({})
+    const params = {
+      'max_results': 100,
+      'tweet.fields': 'created_at'
+    }
+    const options = {
+      headers: {
+        authorization: `Bearer ${bearerToken}`
+      }
+    }
+    const url = `https://api.twitter.com/2/users/989945442/tweets`
+    const resp = await needle('get', url, params, options)
+    // console.log('resp: ', resp.body)
+    const { data, meta } = resp.body
+    res.json({data, meta})
   })
   .use((req, res, next) => {
     if (!req.user) {

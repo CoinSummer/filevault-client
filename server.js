@@ -4,14 +4,14 @@ const { createProxyMiddleware } = require('http-proxy-middleware')
 
 const devProxy = {
   '/api': {
-    target: 'http://localhost:5000/v1/', // 端口自己配置合适的
+    target: 'http://localhost:3000/v1/', // 端口自己配置合适的
     pathRewrite: {
       '^/api': '/'
     },
     changeOrigin: true
   }
 }
-const port = parseInt(process.env.PORT, 10) || 5001
+const port = parseInt(process.env.PORT, 10) || 3000
 const dev = process.env.NODE_ENV !== 'production'
 const app = next({
   dev

@@ -6,7 +6,6 @@ import BaseLayout from '../BaseLayout'
 
 const PageContainer = styled(Box)`
   margin: 0 auto;
-  width: 100%;
 `
 
 interface PageProps {

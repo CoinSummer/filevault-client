@@ -1,7 +1,10 @@
 export interface FeedData {
   id: string
-  avatar: string
-  name: string
-  content: string
-  time: string
+  text: string
+  created_at: string
+}
+
+export interface UserData {
+  avatar?: string
+  name?: string
 }

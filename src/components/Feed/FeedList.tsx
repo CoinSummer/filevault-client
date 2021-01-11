@@ -2,7 +2,7 @@ import React, { useCallback, useState } from 'react'
 import styled from 'styled-components'
 import Column from '../Column'
 import FeedItem from './FeedItem'
-import { FeedData } from './types.d'
+import { FeedData, UserData } from './types.d'
 
 const FeedListContainer = styled.div``
 
@@ -19,11 +19,13 @@ const ListEmpty = styled(Column)`
 `
 
 interface FeedListProps {
-  dataSource: FeedData[]
+  feedList: FeedData[]
+  userInfo: UserData
 }
 
 const FeedListView = ({
-  dataSource,
+  feedList,
+  userInfo,
 }: FeedListProps) => {
   const [selectedIndex, setSelectedIndex] = useState<string[]>([])
 
@@ -35,10 +37,11 @@ const FeedListView = ({
 
   return (
     <FeedListContainer>
-      {dataSource && dataSource.length ? dataSource.map((feedItem, index) => (
+      {feedList && feedList.length ? feedList.map((feedItem: FeedData, index: number) => (
         <FeedItem
           key={index}
-          dataItem={feedItem}
+          feedItem={feedItem}
+          userInfo={userInfo}
           selected={selectedIndex.includes(feedItem.id)}
           onSelect={() => handleSelectItem(feedItem.id)}
         />

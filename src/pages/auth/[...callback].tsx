@@ -16,7 +16,7 @@ const AuthPage = () => {
             oauthTokenKey: oauthToken,
             oauthTokenSecret: oauthVerifier
           }
-          // console.log('payload: ', payload);
+          console.log('payload: ', payload);
           const res = await fetch('/api/feed', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },

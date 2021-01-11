@@ -4,8 +4,10 @@ import Providers from 'next-auth/providers'
 
 const providers = [
   Providers.Twitter({
-    clientId: `${process.env.TWITTER_CLIENT_ID}`,
-    clientSecret: `${process.env.TWITTER_CLIENT_SECRET}`,
+    // clientId: `${process.env.TWITTER_CLIENT_ID}`,
+    // clientSecret: `${process.env.TWITTER_CLIENT_SECRET}`,
+    clientId: '1Rcc9zajmlnRCNnrXaOXY195D',
+    clientSecret: 'Zu0oF91sth3goB2uvjNKsJPITbU8umsWwW4Fye3g0F0tdFDr4A',
   }),
   Providers.GitHub({
     clientId: `${process.env.GITHUB_CLIENT_ID}`,

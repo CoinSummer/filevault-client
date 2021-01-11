@@ -6,14 +6,14 @@ import Feed from '../components/Feed'
 import { useTwettsList } from '../state/twitter/hooks'
 
 const IndexPage = () => {
-  // const [session] = useSession()
-  const session = {
-    accessToken: 'd1f0cab40d5ff5c445957e4b6133b04adae8b9997b042eddae495379cc723063',
-    user: {
-      name: 'Max',
-      image: 'https://pbs.twimg.com/profile_images/1428024873/image.jpg',
-    }
-  }
+  const [session] = useSession()
+  // const session = {
+  //   accessToken: 'd1f0cab40d5ff5c445957e4b6133b04adae8b9997b042eddae495379cc723063',
+  //   user: {
+  //     name: 'Max',
+  //     image: 'https://pbs.twimg.com/profile_images/1428024873/image.jpg',
+  //   }
+  // }
   // const session = null
   console.log('session: ', session);
   let userInfo = {}

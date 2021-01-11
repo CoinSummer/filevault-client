@@ -36,7 +36,7 @@ const handler = nextConnect<NextApiRequest, NextApiResponse>()
           authorization: `Bearer ${bearerToken}`
         }
       }
-      const url = `${TWITTER_API_BASE}/users/989945442/tweets`
+      const url = `${TWITTER_API_BASE}/users/102486999/tweets`
       const resp = await needle('get', url, params, options)
       res.json(resp.body)
     } catch (error) {

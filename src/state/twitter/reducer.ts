@@ -8,12 +8,14 @@ export interface TweetsMetaData {
 }
 
 export interface StorageState {
+  loading: boolean
   list?: any[]
   meta: TweetsMetaData
   total: number
 }
 
 export const initialState: StorageState = {
+  loading: false,
   list: [],
   meta: {
     oldest_id: '',
@@ -25,12 +27,12 @@ export const initialState: StorageState = {
 
 export default createReducer(initialState, builder =>
   builder
-    // .addCase(getTweetsList.pending, (_, { meta: { arg: url, requestId } }) => {
-    //   console.log(url, requestId);
-    // })
+    .addCase(getTweetsList.pending, (state) => {
+      state.loading = true
+    })
     .addCase(getTweetsList.fulfilled, (state, { payload } ) => {
-      console.log('payload: ', payload);
       const { data, meta } = payload
+      state.loading = false
       state.meta = meta
       state.list = data
     })

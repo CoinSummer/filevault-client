@@ -2,8 +2,7 @@ import { NextApiRequest, NextApiResponse } from 'next'
 import nextConnect from 'next-connect'
 import { getSession } from 'next-auth/client'
 import needle from 'needle'
-// import auth from '../../middleware/auth'
-import Twitter from 'twitter-lite'
+import { twitterClient } from '../../../utils/twitter'
 import { TWITTER_API_BASE } from '../../../const'
 
 const handler = nextConnect<NextApiRequest, NextApiResponse>()
@@ -16,29 +15,23 @@ const handler = nextConnect<NextApiRequest, NextApiResponse>()
       next()
     }
   })
-  .get(async (req, res) => {
-    const session = await getSession({ req })
-    console.log('session: ', session);
-
-    const user = new Twitter({
-      consumer_key: `${process.env.TWITTER_CLIENT_ID}`,
-      consumer_secret: `${process.env.TWITTER_CLIENT_SECRET}`,
-    })
-
+  .get(async (_, res) => {
     try {
-      const { access_token: bearerToken } = await user.getBearerToken()
-      const params = {
-        'max_results': 100,
-        'tweet.fields': 'created_at'
-      }
-      const options = {
-        headers: {
-          authorization: `Bearer ${bearerToken}`
+      const { access_token: bearerToken } = await twitterClient.getBearerToken()
+      if (bearerToken) {
+        const params = {
+          'max_results': 100,
+          'tweet.fields': 'created_at'
         }
+        const options = {
+          headers: {
+            authorization: `Bearer ${bearerToken}`
+          }
+        }
+        const url = `${TWITTER_API_BASE}/users/102486999/tweets`
+        const resp = await needle('get', url, params, options)
+        res.json(resp.body)
       }
-      const url = `${TWITTER_API_BASE}/users/102486999/tweets`
-      const resp = await needle('get', url, params, options)
-      res.json(resp.body)
     } catch (error) {
       console.error(error)
     }

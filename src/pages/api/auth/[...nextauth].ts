@@ -19,6 +19,9 @@ const callbacks = {
     console.log('account: ', account)
     console.log('user: ', user)
     return Promise.resolve(true)
+  },
+  session: async (session: any) => {
+    return Promise.resolve(session)
   }
 }
 

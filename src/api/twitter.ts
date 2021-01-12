@@ -7,17 +7,3 @@ export const fetchTweetsList = (params?: any): Promise<any> => {
     params,
   })
 }
-
-export const fetchTwitterLogin = (): Promise<any> => {
-  return request({
-    url: 'auth/twitter/login',
-    method: 'get',
-  })
-}
-
-export const fetchTwitterCallback = (): Promise<any> => {
-  return request({
-    url: 'auth/twitter/callback',
-    method: 'get',
-  })
-}

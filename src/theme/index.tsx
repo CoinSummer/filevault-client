@@ -8,6 +8,7 @@ import {
 } from 'styled-components'
 import { useIsDarkMode } from '../state/user/hooks'
 import { Colors } from './styled'
+// import BackgroundImg from '../assets/bg.png'
 
 export * from './components'
 
@@ -219,10 +220,9 @@ export const ThemedGlobalStyle = createGlobalStyle`
     background-position: 0 -30vh;
     background-repeat: no-repeat;
     background-image: ${({ theme }) =>
-      `radial-gradient(50% 50% at 50% 50%, ${transparentize(0.9, theme.primary1)} 0%, ${transparentize(
-        1,
-        theme.bg1
-      )} 100%)`};
+      `radial-gradient(50% 50% at 50% 50%, ${transparentize(0.9, theme.primary1)} 0%, ${transparentize(1, theme.bg1)} 100%)`};
+    background-repeat: no-repeat;
+    background-size: cover;
   }
 
   h1,h2,h3,h4,h5,h6,p {

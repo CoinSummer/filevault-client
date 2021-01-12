@@ -57,8 +57,6 @@ const Login = () => {
     signIn('github')
   }
 
-  console.log('session: ', session)
-
   return (
     <LoginCard>
       <Slogan />
@@ -70,16 +68,11 @@ const Login = () => {
           <span>Twitter登录</span>
         </LoginItem>
         <LoginItem
+          disabled={true}
           onClick={handleWeiboLogin}
         >
           <i className="iconfont">&#xe641;</i>
           <span>微博登录</span>
-        </LoginItem>
-        <LoginItem
-          onClick={handleGithubLogin}
-        >
-          <i className="iconfont">&#xe600;</i>
-          <span>Github登录</span>
         </LoginItem>
       </LoginWrapper>
     </LoginCard>

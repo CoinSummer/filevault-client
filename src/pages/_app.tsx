@@ -4,6 +4,7 @@ import { Provider } from 'react-redux'
 import { Provider as AuthProvider } from 'next-auth/client'
 import ThemeProvider, { FixedGlobalStyle, ThemedGlobalStyle } from '../theme'
 import store from '../state'
+import UserUpdater from '../state/user/updater'
 import TwitterUpdater from '../state/twitter/updater'
 import { GlobalIconFont } from '../assets/iconfont'
 import { SITE_TITLE } from '../const'
@@ -11,6 +12,7 @@ import { SITE_TITLE } from '../const'
 const Updaters = () => {
   return (
     <>
+      <UserUpdater />
       <TwitterUpdater />
     </>
   )

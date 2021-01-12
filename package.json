@@ -44,6 +44,7 @@
     "@types/react-router-dom": "^5.1.6",
     "@types/rebass": "^4.0.7",
     "@types/styled-components": "5.0.1",
+    "babel-plugin-file-loader": "^2.0.0",
     "babel-plugin-inline-react-svg": "^1.1.2",
     "babel-plugin-styled-components": "^1.10.0",
     "express": "^4.17.1",

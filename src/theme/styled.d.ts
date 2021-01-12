@@ -75,3 +75,8 @@ declare module 'styled-components' {
     flexRowNoWrap: FlattenSimpleInterpolation
   }
 }
+
+declare module '*.png' {
+  const src: string;
+  export default src;
+}

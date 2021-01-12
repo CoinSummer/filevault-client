@@ -11,7 +11,6 @@ export default function Updater() {
     const darkHandler = (match: MediaQueryListEvent) => {
       dispatch(updateMatchesDarkMode({ matchesDarkMode: match.matches }))
     }
-
     const match = window?.matchMedia('(prefers-color-scheme: dark)')
     dispatch(updateMatchesDarkMode({ matchesDarkMode: match.matches }))
 

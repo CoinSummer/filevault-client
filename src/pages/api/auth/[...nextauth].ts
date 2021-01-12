@@ -1,6 +1,21 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 import NextAuth from 'next-auth'
 import Providers from 'next-auth/providers'
+import pool from '../../../utils/database'
+
+const getUserAccountById = async (useId: number) => {
+  const { rows } = await pool.query({
+    text: `
+      SELECT *
+      FROM accounts
+      WHERE user_id = $1
+      LIMIT 1
+    `,
+    values: [useId],
+  })
+  console.log('rows', rows)
+  return rows[0]
+}
 
 const providers = [
   Providers.Twitter({
@@ -21,13 +36,12 @@ const callbacks = {
     user.accountId = account.id
     return Promise.resolve(true)
   },
-  jwt: async (_: any, user: any, account: any) => {
-    user.accountId = account.id
-    return Promise.resolve(account)
-  },
   session: async (session: any, user: any) => {
+    console.log('user: ', user);
+    if (user) {
+      session.account = await getUserAccountById(user.id)
+    }
     session.user = user
-    session.accountId = user.accountId
     return Promise.resolve(session)
   }
 }
@@ -46,5 +60,6 @@ const options = {
   database,
   events,
 }
+
 
 export default (req: NextApiRequest, res: NextApiResponse) => NextAuth(req, res, options)

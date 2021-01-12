@@ -22,7 +22,7 @@ const LogoutWrapper = styled.a`
 
 const LanguageToggle = styled(ButtonOutlined)`
   margin-left: .5rem;
-  min-width: 6rem;
+  min-width: 5.625rem;
   height: 28px;
   line-height: 28px;
 

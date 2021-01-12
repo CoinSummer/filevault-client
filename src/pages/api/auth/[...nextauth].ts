@@ -18,10 +18,11 @@ const callbacks = {
     console.log('profile: ', profile);
     console.log('account: ', account);
     console.log('user: ', user);
-    return Promise.resolve(account)
+    return Promise.resolve(true)
   },
   session: async (session: any, user: any) => {
     session.user = user
+    session.accountId = '11111111'
     return Promise.resolve(session)
   }
 }

@@ -43,10 +43,9 @@ const Login = () => {
   const router = useRouter()
   const [session] = useSession()
 
-  const handleTwitterLogin = async (e: any) => {
+  const handleTwitterLogin = (e: any) => {
     e.preventDefault()
-    const twitter = await signIn('twitter')
-    console.log('twitter: ', twitter);
+    signIn('twitter')
   }
 
   const handleWeiboLogin = () => {

@@ -5,6 +5,7 @@ import Login from '../components/Login'
 import Feed from '../components/Feed'
 import { useTwettsList } from '../state/twitter/hooks'
 
+
 const IndexPage = () => {
   const [session] = useSession()
   // const session = {
@@ -30,6 +31,7 @@ const IndexPage = () => {
       name: '',
     }
   }
+
   console.log('tweetsList: ', tweetsList);
 
   return (

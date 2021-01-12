@@ -67,6 +67,10 @@ const MainContainer = styled.main`
   position: relative;
   display: flex;
   flex-grow: 1;
+
+  ${({ theme }) => theme.mediaWidth.upToSmall`
+    height: calc(100% - 1rem);
+  `}
 `
 
 const FooterContainer = styled.footer`

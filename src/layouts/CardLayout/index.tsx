@@ -12,7 +12,7 @@ const CardContainer = styled.div`
   height: ${({ theme }) => `calc(100vh - ${theme.headerHeight} - ${theme.footerHeight})`};
 
   ${({ theme }) => theme.mediaWidth.upToSmall`
-    margin-top: 1rem;
+    padding: 1rem 0;
     width:  100%;
     height: 100%;
   `}

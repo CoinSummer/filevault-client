@@ -25,6 +25,10 @@ const LanguageToggle = styled(ButtonOutlined)`
   min-width: 6rem;
   height: 28px;
   line-height: 28px;
+
+  ${({ theme }) => theme.mediaWidth.upToSmall`
+    padding: 0;
+  `}
 `
 
 const SettingsView = ({ t }: { t: any }) => {

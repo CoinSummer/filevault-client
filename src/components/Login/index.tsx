@@ -16,6 +16,7 @@ const LoginCard = styled(Card)`
   ${({ theme }) => theme.mediaWidth.upToSmall`
     padding: 3rem 1rem;
     border-radius: 0;
+    height: 100%;
   `}
 `
 

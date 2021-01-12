@@ -18,11 +18,16 @@ const callbacks = {
     console.log('profile: ', profile);
     console.log('account: ', account);
     console.log('user: ', user);
+    user.accountId = account.id
     return Promise.resolve(true)
+  },
+  jwt: async (_: any, user: any, account: any) => {
+    user.accountId = account.id
+    return Promise.resolve(account)
   },
   session: async (session: any, user: any) => {
     session.user = user
-    session.accountId = '11111111'
+    session.accountId = user.accountId
     return Promise.resolve(session)
   }
 }

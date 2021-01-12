@@ -6,14 +6,13 @@ import pool from '../../../utils/database'
 const getUserAccountById = async (useId: number) => {
   const { rows } = await pool.query({
     text: `
-      SELECT *
+      SELECT user_id, provider_account_id
       FROM accounts
       WHERE user_id = $1
       LIMIT 1
     `,
     values: [useId],
   })
-  console.log('rows', rows)
   return rows[0]
 }
 
@@ -29,13 +28,6 @@ const providers = [
 ]
 
 const callbacks = {
-  signIn: async (user: any, account: any, profile: any) => {
-    console.log('profile: ', profile);
-    console.log('account: ', account);
-    console.log('user: ', user);
-    user.accountId = account.id
-    return Promise.resolve(true)
-  },
   session: async (session: any, user: any) => {
     console.log('user: ', user);
     if (user) {

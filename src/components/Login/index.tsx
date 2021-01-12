@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useRouter } from 'next/router'
-import { useSession, signIn } from 'next-auth/client'
+import { signIn } from 'next-auth/client'
 import Card from '../Card'
 import Column from '../Column'
 import { ButtonOutlined } from '../Button'
@@ -41,7 +41,6 @@ const LoginItem = styled(ButtonOutlined)`
 
 const Login = () => {
   const router = useRouter()
-  const [session] = useSession()
 
   const handleTwitterLogin = (e: any) => {
     e.preventDefault()
@@ -50,11 +49,6 @@ const Login = () => {
 
   const handleWeiboLogin = () => {
     router.push('/home')
-  }
-
-  const handleGithubLogin = (e: any) => {
-    e.preventDefault()
-    signIn('github')
   }
 
   return (

@@ -14,10 +14,6 @@ const LogoutWrapper = styled.a`
   border-radius: 50%;
   text-align: center;
 
-  &:hover {
-    background-color: ${({ theme }) => theme.bg3};
-  }
-
   > i {
     font-size: 24px;
     color: ${({ theme }) => theme.text3};

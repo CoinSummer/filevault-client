@@ -15,11 +15,10 @@ const providers = [
 
 const callbacks = {
   signIn: async (user: any, account: any, profile: any) => {
-    user.account = account
-    console.log('profile: ', profile)
-    console.log('account: ', account)
-    console.log('user: ', user)
-    return Promise.resolve(true)
+    console.log('profile: ', profile);
+    console.log('account: ', account);
+    console.log('user: ', user);
+    return Promise.resolve(account)
   },
   session: async (session: any, user: any) => {
     session.user = user

@@ -6,6 +6,7 @@ import Card from '../Card'
 import Column from '../Column'
 import { ButtonOutlined } from '../Button'
 import Slogan from '../Slogan'
+import { withTranslation } from '../../i18n'
 
 const LoginCard = styled(Card)`
   margin: 0 auto;
@@ -35,11 +36,11 @@ const LoginItem = styled(ButtonOutlined)`
   }
 
   > span {
-    width: 5rem;
+    /* width: 5rem; */
   }
 `
 
-const Login = () => {
+const LoginView = ({ t }: { t: any }) => {
   const router = useRouter()
 
   const handleTwitterLogin = (e: any) => {
@@ -59,18 +60,24 @@ const Login = () => {
           onClick={handleTwitterLogin}
         >
           <i className="iconfont">&#xe726;</i>
-          <span>Twitter登录</span>
+          <span>{t('auth:twitter')}</span>
         </LoginItem>
         <LoginItem
           disabled={true}
           onClick={handleWeiboLogin}
         >
           <i className="iconfont">&#xe641;</i>
-          <span>微博登录</span>
+          <span>{t('auth:weibo')}</span>
         </LoginItem>
       </LoginWrapper>
     </LoginCard>
   )
 }
 
-export default Login
+export const getInitialProps = async (): Promise<any> => {
+  return {
+    namespacesRequired: ['auth']
+  }
+}
+
+export default withTranslation('auth')(LoginView)

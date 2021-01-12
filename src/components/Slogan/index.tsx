@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import Column from '../Column'
 import LogoIcon from '../../assets/logo.svg'
 import { SITE_TITLE } from '../../const'
+import { withTranslation } from '../../i18n'
 
 const SloganContainer = styled(Column)`
   margin: 0 auto;
@@ -37,7 +38,7 @@ const SloganText = styled.p`
   color: ${({ theme }) => theme.text3};
 `
 
-const Slogan = () => {
+const SloganView = ({ t }: { t: any }) => {
   return (
     <SloganContainer>
       <LogoWrapper>
@@ -45,10 +46,16 @@ const Slogan = () => {
         <LogoText>{SITE_TITLE}</LogoText>
       </LogoWrapper>
       <SloganText>
-        即刻保存您的重要Twitte、微博到Filecoin
+        {t('auth:slogan')}
       </SloganText>
     </SloganContainer>
   )
 }
 
-export default Slogan
+export const getInitialProps = async (): Promise<any> => {
+  return {
+    namespacesRequired: ['auth']
+  }
+}
+
+export default withTranslation('auth')(SloganView)

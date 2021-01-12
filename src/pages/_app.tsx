@@ -8,6 +8,7 @@ import UserUpdater from '../state/user/updater'
 import TwitterUpdater from '../state/twitter/updater'
 import { GlobalIconFont } from '../assets/iconfont'
 import { SITE_TITLE } from '../const'
+import { appWithTranslation } from '../i18n'
 
 const Updaters = () => {
   return (
@@ -37,4 +38,4 @@ const App = ({ Component, pageProps }: AppProps) => {
   )
 }
 
-export default App
+export default appWithTranslation(App)

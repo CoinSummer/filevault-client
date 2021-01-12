@@ -47,7 +47,7 @@ const FeedListView = ({
         />
       )) : (
         <ListEmpty>
-          <p>暂无信息</p>
+          <p>Empty</p>
         </ListEmpty>
       )}
     </FeedListContainer>

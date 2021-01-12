@@ -1,8 +1,10 @@
 import React from 'react'
+import styled from 'styled-components'
 import { signOut, useSession } from 'next-auth/client'
 import Toggle from '../../components/Toggle'
+import { i18n, withTranslation } from '../../i18n'
 import { useDarkModeManager } from '../../state/user/hooks'
-import styled from 'styled-components'
+import { ButtonOutlined } from '../Button'
 
 const LogoutWrapper = styled.a`
   margin-right: 1rem;
@@ -22,7 +24,14 @@ const LogoutWrapper = styled.a`
   }
 `
 
-const SettingsView = () => {
+const LanguageToggle = styled(ButtonOutlined)`
+  margin-left: .5rem;
+  min-width: 6rem;
+  height: 28px;
+  line-height: 28px;
+`
+
+const SettingsView = ({ t }: { t: any }) => {
   const [session] = useSession()
   const [darkMode, toggleDarkMode] = useDarkModeManager()
 
@@ -46,8 +55,20 @@ const SettingsView = () => {
         inactiveText={<i className="iconfont">&#xe6f4;</i>}
         toggle={toggleDarkMode}
       />
+      <LanguageToggle
+        onClick={() => i18n.changeLanguage(i18n.language === 'en' ? 'zh' : 'en')}
+      >
+        {t('common:change-language')}
+      </LanguageToggle>
     </>
   )
 }
 
-export default SettingsView
+
+export const getInitialProps = async (): Promise<any> => {
+  return {
+    namespacesRequired: ['common']
+  }
+}
+
+export default withTranslation('common')(SettingsView)

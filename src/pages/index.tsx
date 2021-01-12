@@ -4,8 +4,9 @@ import { useSession } from 'next-auth/client'
 import Login from '../components/Login'
 import Feed from '../components/Feed'
 import { useTwettsList } from '../state/twitter/hooks'
+import { i18n, withTranslation } from '../i18n'
 
-const IndexPage = () => {
+const IndexPage = ({ t }: { t: any } ) => {
   const [session] = useSession()
   let userInfo = {}
   let tweetsList = []
@@ -24,6 +25,7 @@ const IndexPage = () => {
 
   return (
     <>
+      {t('common:welcome')}
       {session ?
         (
           <PageLayout>
@@ -43,4 +45,10 @@ const IndexPage = () => {
   )
 }
 
-export default IndexPage
+export const getInitialProps = async (): Promise<any> => {
+  return {
+    namespacesRequired: ['common']
+  }
+}
+
+export default withTranslation('common')(IndexPage)

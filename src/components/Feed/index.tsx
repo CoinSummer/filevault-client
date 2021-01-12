@@ -4,6 +4,7 @@ import { lighten } from 'polished'
 import FeedList from './FeedList'
 import { ButtonEmpty } from '../../components/Button'
 import { FeedData, UserData } from './types.d'
+import { withTranslation } from '../../i18n'
 
 const PageCoitainer = styled(Box)`
   display: flex;
@@ -65,11 +66,13 @@ const SidebarButton = styled(ButtonEmpty)`
 interface FeedProps {
   feedList: FeedData[]
   userInfo: UserData
+  t: any
 }
 
-const Feed = ({
+const FeedView = ({
   feedList,
   userInfo,
+  t,
 }: FeedProps) => {
 
   return (
@@ -84,13 +87,13 @@ const Feed = ({
         <SidebarButton
           borderRadius="10rem"
         >
-          <span>备份已选</span>
+          <span>{t('feed:store.selected')}</span>
           <i className="iconfont">&#xe6cc;</i>
         </SidebarButton>
         <SidebarButton
           borderRadius="10rem"
         >
-          <span>备份全部</span>
+          <span>{t('feed:store.all')}</span>
           <i className="iconfont">&#xe6e8;</i>
         </SidebarButton>
       </SidebarCoitainer>
@@ -98,4 +101,10 @@ const Feed = ({
   )
 }
 
-export default Feed
+export const getInitialProps = async (): Promise<any> => {
+  return {
+    namespacesRequired: ['feed']
+  }
+}
+
+export default withTranslation('feed')(FeedView)

@@ -4,6 +4,7 @@ import { useSession } from 'next-auth/client'
 import Login from '../components/Login'
 import Feed from '../components/Feed'
 import { useTwettsList } from '../state/twitter/hooks'
+import { withTranslation } from '../i18n'
 
 const IndexPage = () => {
   const [session] = useSession()
@@ -43,4 +44,10 @@ const IndexPage = () => {
   )
 }
 
-export default IndexPage
+export const getInitialProps = async (): Promise<any> => {
+  return {
+    namespacesRequired: ['common']
+  }
+}
+
+export default withTranslation('common')(IndexPage)

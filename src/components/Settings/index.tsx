@@ -27,6 +27,12 @@ const LogoutWrapper = styled.a`
   }
 `
 
+const ThemeToggle = styled(Toggle)`
+  ${({ theme }) => theme.mediaWidth.upToSmall`
+    display: none;
+  `}
+`
+
 const LanguageToggle = styled(ButtonOutlined)`
   margin-left: 1rem;
   min-width: 5.5rem;
@@ -57,7 +63,7 @@ const SettingsView = ({ t }: { t: any }) => {
           <i className="iconfont">&#xe609;</i>
         </LogoutWrapper>
       </>}
-      <Toggle
+      <ThemeToggle
         isActive={darkMode}
         activeText={<i className="iconfont">&#xe626;</i>}
         inactiveText={<i className="iconfont">&#xe6f4;</i>}

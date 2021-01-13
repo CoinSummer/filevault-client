@@ -21,7 +21,7 @@ const HeaderContainer = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 1.5rem;
+  padding: 0 1rem;
   width: 100%;
   min-width: auto;
   height: ${({ theme }) => theme.headerHeight};
@@ -35,6 +35,7 @@ const HeaderContainer = styled.header`
 
 const LogoWrapper = styled.div`
   display: flex;
+  align-items: center;
   font-size: 22px;
   font-weight: 700;
   color: ${({ theme }) => theme.text2};

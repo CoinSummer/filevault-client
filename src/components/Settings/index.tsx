@@ -14,19 +14,27 @@ const LogoutWrapper = styled.a`
   border-radius: 50%;
   text-align: center;
 
+  &:hover {
+
+    > i {
+      color: ${({ theme }) => theme.text2};
+    }
+  }
+
   > i {
-    font-size: 24px;
+    font-size: 26px;
     color: ${({ theme }) => theme.text3};
   }
 `
 
 const LanguageToggle = styled(ButtonOutlined)`
-  margin-left: .5rem;
-  min-width: 5.625rem;
+  margin-left: 1rem;
+  min-width: 5.5rem;
   height: 28px;
   line-height: 28px;
 
   ${({ theme }) => theme.mediaWidth.upToSmall`
+    display: none;
     padding: 0;
   `}
 `

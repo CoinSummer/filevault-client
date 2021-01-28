@@ -4,20 +4,6 @@ import { getSession } from 'next-auth/client'
 import needle from 'needle'
 import { twitterClient } from '../../../utils/twitter'
 import { TWITTER_API_BASE } from '../../../const'
-import pool from '../../../utils/database'
-
-export const getUserAccountById = async (useId: number) => {
-  const { rows } = await pool.query({
-    text: `
-      SELECT user_id, provider_account_id
-      FROM accounts
-      WHERE user_id = $1
-      LIMIT 1
-    `,
-    values: [useId],
-  })
-  return rows[0]
-}
 
 const handler = nextConnect<NextApiRequest, NextApiResponse>()
   .use(async (req, res, next) => {
